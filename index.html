@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Chatbox</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; }
+    #chat { border: 1px solid #ccc; padding: 10px; height: 300px; overflow-y: auto; }
+    .message { margin: 5px 0; }
+  </style>
+</head>
+<body>
+  <h1>Welcome to My Chatbox</h1>
+  <div id="chat"></div>
+  <input type="text" id="input" placeholder="Type your message..." />
+  <button onclick="sendMessage()">Send</button>
+
+  <script>
+    const chat = document.getElementById('chat');
+    const input = document.getElementById('input');
+
+    function sendMessage() {
+      const userText = input.value.trim();
+      if (!userText) return;
+      chat.innerHTML += `<div class="message"><strong>You:</strong> ${userText}</div>`;
+      input.value = '';
+
+      // Dummy reply for demo
+      setTimeout(() => {
+        chat.innerHTML += `<div class="message"><strong>Bot:</strong> You said "${userText}"</div>`;
+        chat.scrollTop = chat.scrollHeight;
+      }, 500);
+    }
+
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') sendMessage();
+    });
+  </script>
+</body>
+</html>
