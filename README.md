@@ -1,4 +1,4 @@
-# Dr. Funi Chen - Personal Website with AI Assistant
+# Funi Chen - Personal Website with AI Assistant
 
 [![Deploy Status](https://github.com/funichen/funichen.github.io/actions/workflows/deploy.yml/badge.svg)](https://github.com/funichen/funichen.github.io/actions/workflows/deploy.yml)
 [![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live-brightgreen)](https://funichen.github.io)
@@ -10,7 +10,7 @@
 
 ## 👨‍⚕️ About
 
-This is the personal website of **Dr. Funi Chen, M.D., MHI** - a Data & AI Leader with Clinical Insight. The website showcases professional experience, side projects, and features an intelligent AI assistant that can answer questions about background, skills, and expertise.
+This is the personal website of **Funi Chen, M.D., MHI** - a Data & AI Leader with Clinical Insight. The website showcases professional experience, side projects, and features an intelligent AI assistant that can answer questions about background, skills, and expertise.
 
 ## ✨ Features
 
@@ -185,7 +185,7 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ## 📞 Contact
 
-**Dr. Funi Chen, M.D., MHI**
+**Funi Chen, M.D., MHI**
 - 🌐 Website: [https://funichen.github.io](https://funichen.github.io)
 - 💼 LinkedIn: [https://www.linkedin.com/in/funichen/](https://www.linkedin.com/in/funichen/)
 - 🐙 GitHub: [https://github.com/funichen](https://github.com/funichen)
@@ -200,4 +200,4 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ---
 
-**Built with ❤️ by Dr. Funi Chen** | **Powered by AI** | **Deployed on GitHub Pages**
+**Built with ❤️ by Funi Chen** | **Powered by AI** | **Deployed on GitHub Pages**
