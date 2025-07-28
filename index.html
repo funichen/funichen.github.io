@@ -1,134 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Funichen's personal website with AI chatbot assistant">
-    <title>Funichen - Developer & Creator</title>
-    <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="styles/chatbot.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Funichen's personal website with AI chatbot assistant">
+  <title>Funichen - Developer & Creator</title>
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/chatbot.css">
 </head>
+
 <body>
-    <!-- Main Website Content -->
-    <header>
-        <nav>
-            <div class="nav-container">
-                <h1 class="logo">Funichen</h1>
-                <ul class="nav-links">
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </div>
-        </nav>
-    </header>
+  <!-- Main Website Content -->
+  <header>
+    <nav>
+      <div class="nav-container">
+        <h1 class="logo">Funichen</h1>
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
 
-    <main>
-        <section id="hero">
-            <div class="hero-content">
-                <h1>Welcome to My Digital Space</h1>
-                <p>Developer, Creator, Problem Solver</p>
-                <p class="hero-subtitle">Chat with my AI assistant to learn more about me and my work!</p>
-            </div>
-        </section>
+  <main>
+    <section id="hero">
+      <div class="hero-content">
+        <h1>Welcome to My Digital Space</h1>
+        <p>Developer, Creator, Problem Solver</p>
+        <p class="hero-subtitle">Chat with my AI assistant to learn more about me and my work!</p>
+      </div>
+    </section>
 
-        <section id="about">
-            <div class="container">
-                <h2>About Me</h2>
-                <p>I'm a passionate developer who loves creating innovative solutions and exploring new technologies. I work on both frontend and backend projects, with a particular interest in AI integration and user experience design.</p>
-            </div>
-        </section>
+    <section id="about">
+      <div class="container">
+        <h2>About Me</h2>
+        <p>I'm a passionate developer who loves creating innovative solutions and exploring new technologies. I work on
+          both frontend and backend projects, with a particular interest in AI integration and user experience design.
+        </p>
+      </div>
+    </section>
 
-        <section id="projects">
-            <div class="container">
-                <h2>Projects</h2>
-                <div class="projects-grid">
-                    <div class="project-card">
-                        <h3>Kids Time Manager</h3>
-                        <p>A Flutter application for managing children's screen time and activities</p>
-                        <div class="tech-tags">
-                            <span>Flutter</span>
-                            <span>Dart</span>
-                        </div>
-                    </div>
-                    <div class="project-card">
-                        <h3>AI Chatbot for GitHub Pages</h3>
-                        <p>A client-side AI chatbot that can be easily deployed on GitHub Pages</p>
-                        <div class="tech-tags">
-                            <span>JavaScript</span>
-                            <span>AI APIs</span>
-                            <span>CSS</span>
-                        </div>
-                    </div>
-                </div>
+    <section id="projects">
+      <div class="container">
+        <h2>Projects</h2>
+        <div class="projects-grid">
+          <div class="project-card">
+            <h3>Kids Time Manager</h3>
+            <p>A Flutter application for managing children's screen time and activities</p>
+            <div class="tech-tags">
+              <span>Flutter</span>
+              <span>Dart</span>
             </div>
-        </section>
-
-        <section id="contact">
-            <div class="container">
-                <h2>Get In Touch</h2>
-                <p>Feel free to reach out or chat with my AI assistant for quick questions!</p>
-                <div class="contact-links">
-                    <a href="https://github.com/funichen" target="_blank" rel="noopener noreferrer">GitHub</a>
-                </div>
+          </div>
+          <div class="project-card">
+            <h3>AI Chatbot for GitHub Pages</h3>
+            <p>A client-side AI chatbot that can be easily deployed on GitHub Pages</p>
+            <div class="tech-tags">
+              <span>JavaScript</span>
+              <span>AI APIs</span>
+              <span>CSS</span>
             </div>
-        </section>
-    </main>
-
-    <!-- Chatbot Widget -->
-    <div id="chatbot-container">
-        <!-- Chat button (initially visible) -->
-        <button id="chat-toggle" class="chat-toggle" aria-label="Open chat">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M20 2H4C2.9 2 2 2.9 2 4V22L6 18H20C21.1 18 22 17.1 22 16V4C22 2.9 21.1 2 20 2Z" fill="currentColor"/>
-            </svg>
-        </button>
-
-        <!-- Chat window (initially hidden) -->
-        <div id="chat-window" class="chat-window hidden">
-            <div class="chat-header">
-                <h3>Chat with Funichen's AI</h3>
-                <button id="chat-close" class="chat-close" aria-label="Close chat">×</button>
-            </div>
-            
-            <div id="chat-messages" class="chat-messages">
-                <div class="message bot-message">
-                    <div class="message-content">
-                        <p>Hi! I'm Funichen's AI assistant. I can tell you about their background, projects, and skills. What would you like to know?</p>
-                    </div>
-                    <div class="message-time"></div>
-                </div>
-            </div>
-
-            <div class="chat-input-container">
-                <div class="chat-input-wrapper">
-                    <input type="text" id="chat-input" placeholder="Type your message..." aria-label="Chat message input">
-                    <button id="chat-send" aria-label="Send message">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M2.01 21L23 12L2.01 3L2 10L17 12L2 14L2.01 21Z" fill="currentColor"/>
-                        </svg>
-                    </button>
-                </div>
-            </div>
-
-            <!-- Typing indicator -->
-            <div id="typing-indicator" class="typing-indicator hidden">
-                <div class="typing-dots">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-                <span class="typing-text">AI is typing...</span>
-            </div>
+          </div>
         </div>
-    </div>
+      </div>
+    </section>
 
-    <!-- Scripts -->
-    <script src="js/config.js"></script>
-    <script src="js/message-handler.js"></script>
-    <script src="js/ai-service.js"></script>
-    <script src="js/chat-controller.js"></script>
-    <script src="js/chat-widget.js"></script>
-    <script src="js/main.js"></script>
+    <section id="contact">
+      <div class="container">
+        <h2>Get In Touch</h2>
+        <p>Feel free to reach out or chat with my AI assistant for quick questions!</p>
+        <div class="contact-links">
+          <a href="https://github.com/funichen" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Chatbot Widget -->
+  <div id="chatbot-container">
+    <!-- Chat button (initially visible) -->
+    <button id="chat-toggle" class="chat-toggle" aria-label="Open chat">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M20 2H4C2.9 2 2 2.9 2 4V22L6 18H20C21.1 18 22 17.1 22 16V4C22 2.9 21.1 2 20 2Z" fill="currentColor" />
+      </svg>
+    </button>
+
+    <!-- Chat window (initially hidden) -->
+    <div id="chat-window" class="chat-window hidden">
+      <div class="chat-header">
+        <h3>Chat with Funichen's AI</h3>
+        <button id="chat-close" class="chat-close" aria-label="Close chat">×</button>
+      </div>
+
+      <div id="chat-messages" class="chat-messages">
+        <div class="message bot-message">
+          <div class="message-content">
+            <p>Hi! I'm Funichen's AI assistant. I can tell you about their background, projects, and skills. What would
+              you like to know?</p>
+          </div>
+          <div class="message-time"></div>
+        </div>
+      </div>
+
+      <div class="chat-input-container">
+        <div class="chat-input-wrapper">
+          <input type="text" id="chat-input" placeholder="Type your message..." aria-label="Chat message input">
+          <button id="chat-send" aria-label="Send message">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M2.01 21L23 12L2.01 3L2 10L17 12L2 14L2.01 21Z" fill="currentColor" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Typing indicator -->
+      <div id="typing-indicator" class="typing-indicator hidden">
+        <div class="typing-dots">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <span class="typing-text">AI is typing...</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/config.js"></script>
+  <script src="js/message-handler.js"></script>
+  <script src="js/ai-service.js"></script>
+  <script src="js/chat-controller.js"></script>
+  <script src="js/chat-widget.js"></script>
+  <script src="js/main.js"></script>
 </body>
+
 </html>

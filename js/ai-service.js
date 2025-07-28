@@ -10,7 +10,7 @@ class AIService {
     // Generate response from AI API
     async generateResponse(messages, systemPrompt) {
         if (!this.config.apiKey || this.config.apiKey.trim() === '') {
-            throw new Error('API key not configured. Please set your OpenAI API key in the configuration.');
+            throw new Error('API key not configured. Please set your Google Gemini API key in the configuration.');
         }
 
         const requestBody = this.formatRequest(messages, systemPrompt);
@@ -29,29 +29,42 @@ class AIService {
         }
     }
 
-    // Format request for OpenAI API
+    // Format request for Gemini API
     formatRequest(messages, systemPrompt) {
-        const formattedMessages = [
-            { role: 'system', content: systemPrompt },
-            ...messages
-        ];
+        // Combine system prompt with conversation history
+        let conversationText = systemPrompt + "\n\nConversation:\n";
+        
+        messages.forEach(msg => {
+            const role = msg.role === 'user' ? 'Human' : 'Assistant';
+            conversationText += `${role}: ${msg.content}\n`;
+        });
+        
+        conversationText += "Assistant: ";
 
         return {
-            model: this.config.model || 'gpt-3.5-turbo',
-            messages: formattedMessages,
-            max_tokens: this.config.maxTokens || 500,
-            temperature: this.config.temperature || 0.7,
-            stream: false
+            contents: [{
+                parts: [{
+                    text: conversationText
+                }]
+            }],
+            generationConfig: {
+                temperature: this.config.temperature || 0.7,
+                maxOutputTokens: this.config.maxTokens || 500,
+                topP: 0.8,
+                topK: 10
+            }
         };
     }
 
     // Make the actual API request
     async makeAPIRequest(requestBody) {
-        const response = await fetch(this.config.baseUrl, {
+        // Gemini API uses query parameter for API key
+        const url = `${this.config.baseUrl}?key=${this.config.apiKey}`;
+        
+        const response = await fetch(url, {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${this.config.apiKey}`
+                'Content-Type': 'application/json'
             },
             body: JSON.stringify(requestBody)
         });
@@ -66,16 +79,20 @@ class AIService {
 
     // Process API response
     processResponse(response) {
-        if (!response.choices || response.choices.length === 0) {
+        if (!response.candidates || response.candidates.length === 0) {
             throw new Error('No response generated from AI service');
         }
 
-        const choice = response.choices[0];
-        if (choice.finish_reason === 'length') {
+        const candidate = response.candidates[0];
+        if (candidate.finishReason === 'MAX_TOKENS') {
             console.warn('Response was truncated due to length limit');
         }
 
-        return choice.message.content.trim();
+        if (!candidate.content || !candidate.content.parts || candidate.content.parts.length === 0) {
+            throw new Error('Invalid response format from AI service');
+        }
+
+        return candidate.content.parts[0].text.trim();
     }
 
     // Retry logic with exponential backoff
@@ -131,6 +148,10 @@ class AIService {
             errors.push('Model is required');
         }
         
+        if (this.config.provider === 'gemini' && !this.config.baseUrl.includes('generativelanguage.googleapis.com')) {
+            errors.push('Invalid base URL for Gemini API');
+        }
+        
         return {
             valid: errors.length === 0,
             errors: errors
@@ -142,7 +163,7 @@ class AIService {
         if (error instanceof APIError) {
             switch (error.status) {
                 case 401:
-                    return 'Invalid API key. Please check your OpenAI API key configuration.';
+                    return 'Invalid API key. Please check your Google Gemini API key configuration.';
                 case 429:
                     return 'Rate limit exceeded. Please wait a moment before sending another message.';
                 case 500:

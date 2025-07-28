@@ -231,29 +231,34 @@ class ChatWidget {
 
     // Show API key configuration prompt
     showAPIKeyPrompt() {
-        const promptMessage = `To use the AI chatbot, you need to configure your OpenAI API key. 
+        const promptMessage = `To use the AI chatbot, you need to configure your Google Gemini API key. 
 
 Please note: The API key will be stored in your browser's local storage and used directly from your browser to make API calls. This means:
 - Your API key is only stored locally on your device
-- API calls are made directly from your browser to OpenAI
+- API calls are made directly from your browser to Google Gemini
 - You are responsible for your API usage and costs
+
+To get a Gemini API key:
+1. Visit https://aistudio.google.com/app/apikey
+2. Sign in with your Google account
+3. Create a new API key
 
 Would you like to enter your API key now?`;
 
         if (confirm(promptMessage)) {
-            const apiKey = prompt('Please enter your OpenAI API key:');
+            const apiKey = prompt('Please enter your Google Gemini API key:');
             if (apiKey && apiKey.trim()) {
                 this.chatController.updateAIConfig({ apiKey: apiKey.trim() });
                 this.updateAPIStatus();
                 
                 const successMessage = this.messageHandler.createSystemMessage(
-                    'API key configured successfully! You can now chat with the AI assistant.'
+                    'Gemini API key configured successfully! You can now chat with the AI assistant.'
                 );
                 this.displayMessage(successMessage);
             }
         } else {
             const infoMessage = this.messageHandler.createSystemMessage(
-                'You can still explore the website, but the AI chat functionality requires an API key. You can configure it anytime by trying to send a message.'
+                'You can still explore the website, but the AI chat functionality requires a Gemini API key. You can configure it anytime by trying to send a message.'
             );
             this.displayMessage(infoMessage);
         }

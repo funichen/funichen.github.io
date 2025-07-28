@@ -43,11 +43,12 @@ class ConfigManager {
             ai: {
                 // Note: API key should be provided by user for security
                 apiKey: "", 
-                model: "gpt-3.5-turbo",
-                baseUrl: "https://api.openai.com/v1/chat/completions",
+                model: "gemini-1.5-flash",
+                baseUrl: "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent",
                 maxTokens: 500,
                 temperature: 0.7,
-                systemPrompt: this.getSystemPrompt()
+                systemPrompt: this.getSystemPrompt(),
+                provider: "gemini"
             },
             ui: {
                 theme: "default",
