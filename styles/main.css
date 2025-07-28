@@ -455,6 +455,30 @@ bout Section Enhancements */
     font-size: 1.1rem;
 }
 
+/* Timeline Skills Tags - Same as Project Tech Tags */
+.timeline-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(155, 139, 122, 0.2);
+}
+
+.timeline-skills span {
+    background: rgba(181, 163, 148, 0.2);
+    color: #9B8B7A;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.timeline-skills span:hover {
+    background: rgba(181, 163, 148, 0.3);
+}
+
 /* Hover Effects */
 .timeline-content:hover {
     transform: translateY(-5px);
