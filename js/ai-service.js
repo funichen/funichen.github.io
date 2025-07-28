@@ -14,17 +14,17 @@ class AIService {
         }
 
         const requestBody = this.formatRequest(messages, systemPrompt);
-        
+
         try {
             const response = await this.makeAPIRequest(requestBody);
             return this.processResponse(response);
         } catch (error) {
             console.error('AI Service Error:', error);
-            
+
             if (this.retryCount < this.maxRetries && this.shouldRetry(error)) {
                 return this.retryRequest(messages, systemPrompt);
             }
-            
+
             throw error;
         }
     }
@@ -33,12 +33,12 @@ class AIService {
     formatRequest(messages, systemPrompt) {
         // Combine system prompt with conversation history
         let conversationText = systemPrompt + "\n\nConversation:\n";
-        
+
         messages.forEach(msg => {
             const role = msg.role === 'user' ? 'Human' : 'Assistant';
             conversationText += `${role}: ${msg.content}\n`;
         });
-        
+
         conversationText += "Assistant: ";
 
         return {
@@ -60,7 +60,7 @@ class AIService {
     async makeAPIRequest(requestBody) {
         // Gemini API uses query parameter for API key
         const url = `${this.config.baseUrl}?key=${this.config.apiKey}`;
-        
+
         const response = await fetch(url, {
             method: 'POST',
             headers: {
@@ -99,9 +99,9 @@ class AIService {
     async retryRequest(messages, systemPrompt) {
         this.retryCount++;
         const delay = this.retryDelay * Math.pow(2, this.retryCount - 1);
-        
+
         console.log(`Retrying AI request (attempt ${this.retryCount}/${this.maxRetries}) after ${delay}ms`);
-        
+
         await this.sleep(delay);
         return this.generateResponse(messages, systemPrompt);
     }
@@ -112,7 +112,7 @@ class AIService {
             // Retry on server errors and rate limits
             return error.status >= 500 || error.status === 429;
         }
-        
+
         // Retry on network errors
         return error.name === 'TypeError' || error.message.includes('fetch');
     }
@@ -135,23 +135,23 @@ class AIService {
     // Validate API configuration
     validateConfig() {
         const errors = [];
-        
+
         if (!this.config.apiKey || this.config.apiKey.trim() === '') {
             errors.push('API key is required');
         }
-        
+
         if (!this.config.baseUrl) {
             errors.push('Base URL is required');
         }
-        
+
         if (!this.config.model) {
             errors.push('Model is required');
         }
-        
+
         if (this.config.provider === 'gemini' && !this.config.baseUrl.includes('generativelanguage.googleapis.com')) {
             errors.push('Invalid base URL for Gemini API');
         }
-        
+
         return {
             valid: errors.length === 0,
             errors: errors
@@ -174,11 +174,11 @@ class AIService {
                     return error.message || 'An error occurred while processing your request.';
             }
         }
-        
+
         if (error.message.includes('fetch') || error.name === 'TypeError') {
             return 'Network error. Please check your internet connection and try again.';
         }
-        
+
         return error.message || 'An unexpected error occurred. Please try again.';
     }
 }
