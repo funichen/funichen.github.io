@@ -90,7 +90,7 @@ class ConfigManager {
                             "Improved partner reporting efficiency by ~30% and saved ~15 hours/week in operational overhead",
                             "Unified dashboards across 5 teams into single source-of-truth QuickSight environment"
                         ],
-                        technologies: ["AWS", "QuickSight", "ETL/Cradle", "Data Modeling", "AI/ML", "Natural Language Processing"]
+                        technologies: ["AWS", "Vibe Coding", "QuickSight", "ETL/Cradle", "Data Modeling", "AI/ML", "Natural Language Processing"]
                     },
                     {
                         company: "Providence Health & Services",
@@ -105,7 +105,7 @@ class ConfigManager {
                             "Reduced data latency and storage costs by over 40% for mission-critical financial P&L reporting",
                             "Collaborated with executive leaders for strategic planning and opportunity identification"
                         ],
-                        technologies: ["Azure", "Snowflake", "Data Architecture", "Financial Analytics", "Team Leadership"]
+                        technologies: ["Azure", "Snowflake", "Data Architecture", "Product Management", "Engineer Management", "Team Leadership"]
                     },
                     {
                         company: "Amazon Care",
@@ -135,7 +135,7 @@ class ConfigManager {
                             "Achieved 35% reduction in project timelines and 60% increase in data availability for 51 hospitals",
                             "Collaborated with Clinical and Administrative Leaders on large clinical data stores evaluation"
                         ],
-                        technologies: ["Azure", "Snowflake", "Machine Learning", "Clinical Data", "Spark", "Python", "SQL"]
+                        technologies: ["Azure", "Snowflake", "Databricks", "Data Modeling", "Machine Learning", "Clinical Data", "Spark", "Python", "SQL" ,"Tableau"]
                     }
                 ],
                 education: [
@@ -144,7 +144,6 @@ class ConfigManager {
                         degree: "Master of Health Informatics (MHI)",
                         duration: "Completed",
                         location: "Seattle, WA",
-                        specialization: "Data Science Certification",
                         relevantCourses: ["Health Data Analytics", "Clinical Decision Support", "Healthcare Information Systems", "Data Science Methods"]
                     },
                     {
@@ -204,7 +203,7 @@ class ConfigManager {
                     text: "#5D5A56"          // Morandi dark gray
                 },
                 animations: true,
-                welcomeMessage: "Hi! I'm Funichen's AI assistant. I can tell you about their background, projects, and skills. What would you like to know?"
+                welcomeMessage: "Hi! I'm Funi's AI assistant. I can tell you about her background, projects, and skills. What would you like to know?"
             }
         };
     }
@@ -212,7 +211,7 @@ class ConfigManager {
     buildSystemPrompt() {
         const personal = this.config?.personal || this.getDefaultConfig().personal;
         
-        return `You are an AI assistant representing Funichen, a developer and creator. You should respond in a friendly, professional manner as if you are speaking on behalf of Funichen.
+        return `You are an AI assistant representing Funi Chen, a technical leader, developer and creator with Clinical Insight. You should respond in a friendly, professional manner as if you are speaking on behalf of Funi Chen.
 
 ABOUT FUNICHEN:
 - Name: ${personal.name}
@@ -272,22 +271,22 @@ CONTACT INFORMATION:
 - LinkedIn: ${personal.contact.linkedin}
 
 RESPONSE GUIDELINES:
-1. Always respond as Funichen's AI assistant, representing them professionally
+1. Always respond as Funi Chen's AI assistant, representing them professionally
 2. Be helpful, friendly, and enthusiastic about their work
 3. Provide specific details about projects, skills, and experience when relevant
-4. If asked about collaboration or contact, encourage visitors to reach out via GitHub
+4. If asked about collaboration or contact, encourage visitors to reach out via GitHub or LinkedIn
 5. Keep responses informative but conversational
-6. If asked about topics outside Funichen's expertise, acknowledge limitations but offer to help with what you know
-7. Highlight Funichen's passion for AI integration and user experience design
+6. If asked about topics outside Funi Chen's expertise, acknowledge limitations
+7. Highlight Funi Chen's passion for AI integration and user experience design
 8. Mention their openness to collaboration and interesting projects
 
 CONVERSATION STYLE:
 - Be personable and approachable
 - Show enthusiasm for technology and innovation
-- Demonstrate Funichen's problem-solving mindset
-- Encourage exploration of their projects and GitHub profile
+- Demonstrate Funi Chen's problem-solving mindset
+- Encourage exploration of their projects and GitHub/LinkedIn profile
 
-Remember: You're helping visitors learn about Funichen's work, skills, and availability for collaboration. Stay in character as their knowledgeable AI assistant!`;
+Remember: You're helping visitors learn about Funi Chen's work, skills, and availability for collaboration. Stay in character as their knowledgeable AI assistant!`;
     }
 
     loadConfig() {

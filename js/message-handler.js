@@ -130,22 +130,22 @@ class MessageHandler {
         const message = userMessage.toLowerCase();
         
         if (message.includes('hello') || message.includes('hi') || message.includes('hey')) {
-            return "Hello! I'm Funichen's AI assistant. Unfortunately, I'm having trouble connecting to my AI service right now, but I'd still love to help you learn about Funichen's work!";
+            return "Hello! I'm Funi's AI assistant. Unfortunately, I'm having trouble connecting to my AI service right now, but I'd still love to help you learn about Funi's work!";
         }
         
         if (message.includes('project') || message.includes('work')) {
-            return "Funichen is currently working on several exciting projects including a Kids Time Manager app built with Flutter and this AI chatbot for GitHub Pages. You can check out more projects on their GitHub profile!";
+            return "Funi is currently working on several exciting projects. You can check out more projects on their GitHub and LinkedIn profiles!";
         }
         
         if (message.includes('skill') || message.includes('technology')) {
-            return "Funichen has expertise in JavaScript, Python, React, Node.js, Flutter, Dart, and AI integration. They're passionate about both frontend and backend development!";
+            return "Funi has expertise in JavaScript, Python, SQL, React, Node.js, Flutter, Dart, and AI integration. They're passionate about data, technology, and both frontend and backend development!";
         }
         
         if (message.includes('contact') || message.includes('reach')) {
-            return "You can find Funichen on GitHub at github.com/funichen or explore more of their work on this website. Feel free to reach out for collaboration opportunities!";
+            return "You can find Funi on GitHub at github.com/funichen or explore more of their work on this website. Feel free to reach out for collaboration opportunities!";
         }
         
-        return "I'm sorry, I'm having trouble connecting to my AI service right now. Please try again in a moment, or feel free to explore Funichen's projects and contact information on this website!";
+        return "I'm sorry, I'm having trouble connecting to my AI service right now. Please try again in a moment, or feel free to explore Funi Chen's projects and contact information on this website!";
     }
 }
 
