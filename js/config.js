@@ -54,7 +54,7 @@ class ConfigManager {
                     email: "chan.funi@gmail.com",
                     phone: "425-295-1460",
                     website: "https://funichen.github.io",
-                    linkedin: "Connect through GitHub"
+                    linkedin: "https://www.linkedin.com/in/funichen/"
                 },
                 interests: [
                     "Artificial Intelligence & Machine Learning", 
@@ -188,10 +188,11 @@ class ConfigManager {
                 theme: "default",
                 position: "bottom-right",
                 colors: {
-                    primary: "#2563eb",
-                    secondary: "#1d4ed8",
-                    background: "#ffffff",
-                    text: "#333333"
+                    primary: "#9B8B7A",      // Morandi brown
+                    secondary: "#A8998A",    // Morandi warm gray
+                    accent: "#B5A394",       // Morandi beige
+                    background: "#F5F3F0",   // Morandi off-white
+                    text: "#5D5A56"          // Morandi dark gray
                 },
                 animations: true,
                 welcomeMessage: "Hi! I'm Funichen's AI assistant. I can tell you about their background, projects, and skills. What would you like to know?"

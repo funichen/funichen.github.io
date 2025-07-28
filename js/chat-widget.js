@@ -43,6 +43,12 @@ class ChatWidget {
         // Toggle chat window
         this.elements.toggleButton?.addEventListener('click', () => this.toggle());
         this.elements.closeButton?.addEventListener('click', () => this.hide());
+        
+        // Inline chat button
+        const inlineButton = document.getElementById('chat-toggle-inline');
+        if (inlineButton) {
+            inlineButton.addEventListener('click', () => this.show());
+        }
 
         // Send message
         this.elements.sendButton?.addEventListener('click', () => this.handleSendMessage());
