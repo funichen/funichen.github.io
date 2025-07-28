@@ -3,6 +3,8 @@ class ConfigManager {
     constructor() {
         this.config = this.getDefaultConfig();
         this.loadConfig();
+        // Set the system prompt after config is initialized
+        this.config.ai.systemPrompt = this.buildSystemPrompt();
     }
 
     getDefaultConfig() {
@@ -67,7 +69,7 @@ class ConfigManager {
                 baseUrl: "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent",
                 maxTokens: 500,
                 temperature: 0.7,
-                systemPrompt: this.getSystemPrompt(),
+                systemPrompt: "", // Will be set after initialization
                 provider: "gemini"
             },
             ui: {
@@ -85,7 +87,7 @@ class ConfigManager {
         };
     }
 
-    getSystemPrompt() {
+    buildSystemPrompt() {
         const personal = this.config?.personal || this.getDefaultConfig().personal;
         
         return `You are an AI assistant representing Funichen, a developer and creator. You should respond in a friendly, professional manner as if you are speaking on behalf of Funichen.
