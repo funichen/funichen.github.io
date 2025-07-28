@@ -155,16 +155,36 @@ class ChatbotApp {
 
 // Initialize the application when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
-    // Create global chatbot instance
-    window.chatbotApp = new ChatbotApp();
+    console.log('DOM loaded, starting chatbot initialization...');
     
-    // Expose API for external access
-    window.ChatbotAPI = window.chatbotApp.getAPI();
-    
-    // Add some helpful console messages
-    console.log('%c🤖 AI Chatbot Loaded!', 'color: #2563eb; font-size: 16px; font-weight: bold;');
-    console.log('Use ChatbotAPI to interact with the chatbot programmatically.');
-    console.log('Example: ChatbotAPI.openChat() or ChatbotAPI.setAPIKey("your-key")');
+    try {
+        // Create global chatbot instance
+        window.chatbotApp = new ChatbotApp();
+        
+        // Expose API for external access
+        window.ChatbotAPI = window.chatbotApp.getAPI();
+        
+        // Add some helpful console messages
+        console.log('%c🤖 AI Chatbot Loaded!', 'color: #2563eb; font-size: 16px; font-weight: bold;');
+        console.log('Use ChatbotAPI to interact with the chatbot programmatically.');
+        console.log('Example: ChatbotAPI.openChat() or ChatbotAPI.setAPIKey("your-key")');
+        
+        // Force show the chat button for debugging
+        const chatButton = document.getElementById('chat-toggle');
+        if (chatButton) {
+            chatButton.style.display = 'flex';
+            chatButton.style.position = 'fixed';
+            chatButton.style.bottom = '20px';
+            chatButton.style.right = '20px';
+            chatButton.style.zIndex = '9999';
+            console.log('Chat button found and forced to display');
+        } else {
+            console.error('Chat button not found in DOM!');
+        }
+        
+    } catch (error) {
+        console.error('Failed to initialize chatbot app:', error);
+    }
 });
 
 // Handle any uncaught errors
