@@ -44,10 +44,10 @@ class ChatWidget {
         this.elements.toggleButton?.addEventListener('click', () => this.toggle());
         this.elements.closeButton?.addEventListener('click', () => this.hide());
         
-        // Inline chat button
-        const inlineButton = document.getElementById('chat-toggle-inline');
-        if (inlineButton) {
-            inlineButton.addEventListener('click', () => this.show());
+        // Hero chat button
+        const heroButton = document.getElementById('chat-toggle-hero');
+        if (heroButton) {
+            heroButton.addEventListener('click', () => this.show());
         }
 
         // Send message
