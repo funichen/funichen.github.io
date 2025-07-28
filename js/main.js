@@ -15,6 +15,20 @@ class ChatbotApp {
         try {
             console.log('Initializing AI Chatbot...');
             
+            // Check if DOM elements exist
+            const chatContainer = document.getElementById('chatbot-container');
+            const chatToggle = document.getElementById('chat-toggle');
+            
+            if (!chatContainer) {
+                throw new Error('Chatbot container not found in DOM');
+            }
+            
+            if (!chatToggle) {
+                throw new Error('Chat toggle button not found in DOM');
+            }
+            
+            console.log('DOM elements found, proceeding with initialization...');
+            
             // Initialize core components
             this.configManager = new ConfigManager();
             this.messageHandler = new MessageHandler();
@@ -40,6 +54,7 @@ class ChatbotApp {
             this.setupGlobalEventListeners();
             
             console.log('AI Chatbot initialized successfully!');
+            console.log('Chat button should be visible in bottom-right corner');
             
         } catch (error) {
             console.error('Failed to initialize chatbot:', error);

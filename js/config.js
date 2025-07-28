@@ -19,11 +19,11 @@ class ConfigManager {
                 ],
                 projects: [
                     {
-                        name: "Kids Time Manager",
-                        description: "A Flutter application for managing children's screen time and activities, helping parents create healthy digital habits for their kids",
-                        technologies: ["Flutter", "Dart", "SQLite", "Provider"],
-                        status: "In Development",
-                        highlights: ["Cross-platform mobile app", "Parental controls", "Activity tracking"]
+                        name: "SquishyDuck - Stress Relief App",
+                        description: "A Flutter app designed to help users manage stress through interactive duck activities and relaxation techniques with beautiful, customizable themes",
+                        technologies: ["Flutter", "Dart", "SharedPreferences", "AudioPlayers", "Custom UI"],
+                        status: "Published",
+                        highlights: ["Interactive balloon popping game", "Squeeze ball with realistic physics", "Guided breathing exercises", "5 customizable themes", "Usage analytics", "Cross-platform support"]
                     },
                     {
                         name: "AI Chatbot for GitHub Pages",
