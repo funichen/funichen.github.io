@@ -3,8 +3,17 @@ class ConfigManager {
     constructor() {
         this.config = this.getDefaultConfig();
         this.loadConfig();
+        // Load API key from configuration
+        this.loadAPIKey();
         // Set the system prompt after config is initialized
         this.config.ai.systemPrompt = this.buildSystemPrompt();
+    }
+
+    // Load API key from API_CONFIG if available
+    loadAPIKey() {
+        if (window.API_CONFIG && window.API_CONFIG.GEMINI_API_KEY) {
+            this.config.ai.apiKey = window.API_CONFIG.GEMINI_API_KEY;
+        }
     }
 
     getDefaultConfig() {
@@ -175,7 +184,7 @@ class ConfigManager {
                 availability: "Open to interesting projects and collaboration opportunities!"
             },
             ai: {
-                // Note: API key should be provided by user for security
+                // API key will be loaded from API config
                 apiKey: "", 
                 model: "gemini-1.5-flash",
                 baseUrl: "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent",

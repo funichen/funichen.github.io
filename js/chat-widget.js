@@ -122,7 +122,7 @@ class ChatWidget {
 
         // Check if API is configured
         if (!this.chatController.isAPIConfigured()) {
-            this.showAPIKeyPrompt();
+            this.showAPINotConfiguredMessage();
             return;
         }
 
@@ -235,7 +235,15 @@ class ChatWidget {
         this.displayMessage(errorMessage);
     }
 
-    // Show API key configuration prompt
+    // Show API not configured message
+    showAPINotConfiguredMessage() {
+        const errorMessage = this.messageHandler.createSystemMessage(
+            'AI chat is currently being configured. Please check back soon or contact the site owner if this issue persists.'
+        );
+        this.displayMessage(errorMessage);
+    }
+
+    // Show API key configuration prompt (kept for backward compatibility)
     showAPIKeyPrompt() {
         const promptMessage = `To use the AI chatbot, you need to configure your Google Gemini API key. 
 
