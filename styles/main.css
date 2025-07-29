@@ -795,7 +795,7 @@ age Specific Styles */
 
 /* Subpage Hero Sections */
 #insights-hero,
-#travel-hero {
+#life-hero {
     background: linear-gradient(135deg, #B5A394 0%, #A8998A 50%, #9B8B7A 100%);
     color: white;
     padding: 120px 0 80px 0;
@@ -804,14 +804,14 @@ age Specific Styles */
 }
 
 #insights-hero h1,
-#travel-hero h1 {
+#life-hero h1 {
     font-size: 3.5rem;
     margin-bottom: 1.5rem;
     font-weight: 700;
 }
 
 #insights-hero .hero-subtitle,
-#travel-hero .hero-subtitle {
+#life-hero .hero-subtitle {
     font-size: 1.3rem;
     opacity: 0.9;
     max-width: 800px;
@@ -895,12 +895,12 @@ age Specific Styles */
     text-decoration: underline;
 }
 
-/* Travel Page Specific */
-#travel-content {
+/* Life Page Specific */
+#life-content {
     padding: 80px 0;
 }
 
-.travel-intro {
+.life-intro {
     text-align: center;
     margin-bottom: 4rem;
     max-width: 800px;
@@ -908,41 +908,108 @@ age Specific Styles */
     margin-right: auto;
 }
 
-.travel-intro h2 {
+.life-intro h2 {
     color: #9B8B7A;
     font-size: 2.5rem;
     margin-bottom: 1.5rem;
 }
 
-.travel-intro p {
+.life-intro p {
     font-size: 1.2rem;
     line-height: 1.7;
     color: #5D5A56;
 }
 
-.travel-card.featured {
+.life-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.life-card {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    box-shadow: 0 8px 30px rgba(93, 90, 86, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(155, 139, 122, 0.1);
+    overflow: hidden;
+}
+
+.life-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(93, 90, 86, 0.15);
+}
+
+.life-card.featured {
     grid-column: 1 / -1;
     background: linear-gradient(135deg, rgba(181, 163, 148, 0.1) 0%, rgba(168, 153, 138, 0.1) 100%);
     border: 2px solid rgba(155, 139, 122, 0.2);
 }
 
-.travel-card.featured .travel-image-placeholder {
+.life-image-placeholder {
+    background: linear-gradient(135deg, #B5A394 0%, #A8998A 50%, #9B8B7A 100%);
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.life-card.featured .life-image-placeholder {
     height: 150px;
 }
 
-.travel-features {
+.life-image-placeholder svg {
+    opacity: 0.8;
+}
+
+.life-content {
+    padding: 2rem;
+}
+
+.life-content h3 {
+    color: #5D5A56;
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    line-height: 1.3;
+}
+
+.life-content p {
+    color: #5D5A56;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.life-features {
     list-style: none;
     padding: 0;
     margin: 1.5rem 0;
 }
 
-.travel-features li {
+.life-features li {
     padding: 0.5rem 0;
     font-size: 1.1rem;
     line-height: 1.6;
 }
 
-.travel-philosophy {
+.life-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.life-tags span {
+    background: rgba(181, 163, 148, 0.2);
+    color: #9B8B7A;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.life-philosophy {
     text-align: center;
     margin: 4rem 0;
     padding: 3rem;
@@ -950,13 +1017,13 @@ age Specific Styles */
     border-radius: 15px;
 }
 
-.travel-philosophy h2 {
+.life-philosophy h2 {
     color: #9B8B7A;
     font-size: 2rem;
     margin-bottom: 2rem;
 }
 
-.travel-philosophy blockquote {
+.life-philosophy blockquote {
     font-size: 1.3rem;
     font-style: italic;
     color: #5D5A56;
@@ -966,13 +1033,13 @@ age Specific Styles */
     line-height: 1.7;
 }
 
-.travel-philosophy p {
+.life-philosophy p {
     color: #9B8B7A;
     font-weight: 600;
     margin-top: 1rem;
 }
 
-.travel-cta {
+.life-cta {
     text-align: center;
     margin-top: 4rem;
     padding: 3rem;
@@ -980,19 +1047,19 @@ age Specific Styles */
     border-radius: 15px;
 }
 
-.travel-cta h3 {
+.life-cta h3 {
     color: #9B8B7A;
     font-size: 1.8rem;
     margin-bottom: 1rem;
 }
 
-.travel-cta a {
+.life-cta a {
     color: #9B8B7A;
     font-weight: 600;
     text-decoration: none;
 }
 
-.travel-cta a:hover {
+.life-cta a:hover {
     color: #A8998A;
     text-decoration: underline;
 }
@@ -1000,34 +1067,47 @@ age Specific Styles */
 /* Responsive Design for Subpages */
 @media (max-width: 768px) {
     #insights-hero h1,
-    #travel-hero h1 {
+    #life-hero h1 {
         font-size: 2.5rem;
     }
     
     #insights-hero .hero-subtitle,
-    #travel-hero .hero-subtitle {
+    #life-hero .hero-subtitle {
         font-size: 1.1rem;
     }
     
     #insights-hero,
-    #travel-hero {
+    #life-hero {
         padding: 100px 0 60px 0;
     }
     
     .insight-card.featured,
-    .travel-card.featured {
+    .life-card.featured {
         grid-column: 1;
     }
     
-    .travel-philosophy blockquote {
+    .life-philosophy blockquote {
         font-size: 1.1rem;
         padding: 0 1rem;
     }
     
     .insights-cta,
-    .travel-cta,
-    .travel-philosophy {
+    .life-cta,
+    .life-philosophy {
         padding: 2rem;
         margin-top: 3rem;
+    }
+    
+    .life-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .life-content {
+        padding: 1.5rem;
+    }
+    
+    .life-image-placeholder {
+        height: 100px;
     }
 }
