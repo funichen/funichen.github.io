@@ -576,4 +576,458 @@ bout Section Enhancements */
     .timeline-company {
         font-size: 1rem;
     }
+}/* S
+ection Introduction Text */
+.section-intro {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #5D5A56;
+    margin-bottom: 3rem;
+    font-style: italic;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Insights Section */
+#insights {
+    background: rgba(245, 243, 240, 0.3);
+}
+
+.insights-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.insight-card {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 8px 30px rgba(93, 90, 86, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(155, 139, 122, 0.1);
+    position: relative;
+}
+
+.insight-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(93, 90, 86, 0.15);
+}
+
+.insight-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.insight-date {
+    background: rgba(181, 163, 148, 0.2);
+    color: #9B8B7A;
+    padding: 0.25rem 0.75rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.insight-category {
+    background: #9B8B7A;
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.insight-card h3 {
+    color: #5D5A56;
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    line-height: 1.3;
+}
+
+.insight-card p {
+    color: #5D5A56;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.insight-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.insight-tags span {
+    background: rgba(181, 163, 148, 0.2);
+    color: #9B8B7A;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+/* Travel Section */
+#travel {
+    background: rgba(245, 243, 240, 0.5);
+}
+
+.travel-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.travel-card {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    box-shadow: 0 8px 30px rgba(93, 90, 86, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(155, 139, 122, 0.1);
+    overflow: hidden;
+}
+
+.travel-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(93, 90, 86, 0.15);
+}
+
+.travel-image-placeholder {
+    background: linear-gradient(135deg, #B5A394 0%, #A8998A 50%, #9B8B7A 100%);
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.travel-image-placeholder svg {
+    opacity: 0.8;
+}
+
+.travel-content {
+    padding: 2rem;
+}
+
+.travel-content h3 {
+    color: #5D5A56;
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    line-height: 1.3;
+}
+
+.travel-content p {
+    color: #5D5A56;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.travel-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.travel-tags span {
+    background: rgba(181, 163, 148, 0.2);
+    color: #9B8B7A;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+/* Responsive Design for New Sections */
+@media (max-width: 768px) {
+    .insights-grid,
+    .travel-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .insight-card,
+    .travel-content {
+        padding: 1.5rem;
+    }
+    
+    .travel-image-placeholder {
+        height: 100px;
+    }
+    
+    .insight-meta {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    
+    .section-intro {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+    }
+}/* Subp
+age Specific Styles */
+
+/* Logo link styling */
+.logo a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.logo a:hover {
+    color: #A8998A;
+}
+
+/* Active navigation link */
+.nav-links a.active {
+    color: #9B8B7A;
+    font-weight: 600;
+}
+
+/* Subpage Hero Sections */
+#insights-hero,
+#travel-hero {
+    background: linear-gradient(135deg, #B5A394 0%, #A8998A 50%, #9B8B7A 100%);
+    color: white;
+    padding: 120px 0 80px 0;
+    text-align: center;
+    margin-top: 70px;
+}
+
+#insights-hero h1,
+#travel-hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+}
+
+#insights-hero .hero-subtitle,
+#travel-hero .hero-subtitle {
+    font-size: 1.3rem;
+    opacity: 0.9;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* Insights Page Specific */
+#insights-content {
+    padding: 80px 0;
+}
+
+.insight-card.featured {
+    grid-column: 1 / -1;
+    background: linear-gradient(135deg, rgba(181, 163, 148, 0.1) 0%, rgba(168, 153, 138, 0.1) 100%);
+    border: 2px solid rgba(155, 139, 122, 0.2);
+}
+
+.insight-card.featured h2 {
+    font-size: 2rem;
+    color: #9B8B7A;
+    margin-bottom: 1.5rem;
+}
+
+.insight-preview {
+    background: rgba(245, 243, 240, 0.5);
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin: 1.5rem 0;
+}
+
+.insight-preview h4 {
+    color: #9B8B7A;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.insight-preview ul {
+    list-style: none;
+    padding: 0;
+}
+
+.insight-preview li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.8rem;
+    color: #5D5A56;
+    line-height: 1.6;
+}
+
+.insight-preview li::before {
+    content: "▸";
+    position: absolute;
+    left: 0;
+    color: #9B8B7A;
+    font-weight: bold;
+}
+
+.insights-cta {
+    text-align: center;
+    margin-top: 4rem;
+    padding: 3rem;
+    background: rgba(181, 163, 148, 0.1);
+    border-radius: 15px;
+}
+
+.insights-cta h3 {
+    color: #9B8B7A;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.insights-cta a {
+    color: #9B8B7A;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.insights-cta a:hover {
+    color: #A8998A;
+    text-decoration: underline;
+}
+
+/* Travel Page Specific */
+#travel-content {
+    padding: 80px 0;
+}
+
+.travel-intro {
+    text-align: center;
+    margin-bottom: 4rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.travel-intro h2 {
+    color: #9B8B7A;
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.travel-intro p {
+    font-size: 1.2rem;
+    line-height: 1.7;
+    color: #5D5A56;
+}
+
+.travel-card.featured {
+    grid-column: 1 / -1;
+    background: linear-gradient(135deg, rgba(181, 163, 148, 0.1) 0%, rgba(168, 153, 138, 0.1) 100%);
+    border: 2px solid rgba(155, 139, 122, 0.2);
+}
+
+.travel-card.featured .travel-image-placeholder {
+    height: 150px;
+}
+
+.travel-features {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0;
+}
+
+.travel-features li {
+    padding: 0.5rem 0;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.travel-philosophy {
+    text-align: center;
+    margin: 4rem 0;
+    padding: 3rem;
+    background: rgba(181, 163, 148, 0.1);
+    border-radius: 15px;
+}
+
+.travel-philosophy h2 {
+    color: #9B8B7A;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+.travel-philosophy blockquote {
+    font-size: 1.3rem;
+    font-style: italic;
+    color: #5D5A56;
+    margin: 2rem 0;
+    padding: 0 2rem;
+    border-left: 4px solid #9B8B7A;
+    line-height: 1.7;
+}
+
+.travel-philosophy p {
+    color: #9B8B7A;
+    font-weight: 600;
+    margin-top: 1rem;
+}
+
+.travel-cta {
+    text-align: center;
+    margin-top: 4rem;
+    padding: 3rem;
+    background: rgba(181, 163, 148, 0.1);
+    border-radius: 15px;
+}
+
+.travel-cta h3 {
+    color: #9B8B7A;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.travel-cta a {
+    color: #9B8B7A;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.travel-cta a:hover {
+    color: #A8998A;
+    text-decoration: underline;
+}
+
+/* Responsive Design for Subpages */
+@media (max-width: 768px) {
+    #insights-hero h1,
+    #travel-hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    #insights-hero .hero-subtitle,
+    #travel-hero .hero-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    #insights-hero,
+    #travel-hero {
+        padding: 100px 0 60px 0;
+    }
+    
+    .insight-card.featured,
+    .travel-card.featured {
+        grid-column: 1;
+    }
+    
+    .travel-philosophy blockquote {
+        font-size: 1.1rem;
+        padding: 0 1rem;
+    }
+    
+    .insights-cta,
+    .travel-cta,
+    .travel-philosophy {
+        padding: 2rem;
+        margin-top: 3rem;
+    }
 }
