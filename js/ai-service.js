@@ -9,6 +9,12 @@ class AIService {
 
     // Generate response from AI API
     async generateResponse(messages, systemPrompt) {
+        console.log('AI Service Debug:', {
+            hasApiKey: !!this.config.apiKey,
+            keyLength: this.config.apiKey ? this.config.apiKey.length : 0,
+            keyStart: this.config.apiKey ? this.config.apiKey.substring(0, 10) + '...' : 'none'
+        });
+        
         if (!this.config.apiKey || this.config.apiKey.trim() === '') {
             throw new Error('API key not configured. Please set your Google Gemini API key in the configuration.');
         }

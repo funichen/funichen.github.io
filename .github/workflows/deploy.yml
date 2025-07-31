@@ -12,7 +12,6 @@ permissions:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    environment: production
     
     steps:
     - name: Checkout
@@ -24,6 +23,9 @@ jobs:
         echo "window.ENV = {" > js/env-config.js
         echo "  GEMINI_API_KEY: '${{ secrets.GEMINI_API_KEY }}'" >> js/env-config.js
         echo "};" >> js/env-config.js
+        # Debug: Check if the file was created and has content (without exposing the key)
+        echo "env-config.js created with $(wc -l < js/env-config.js) lines"
+        echo "File size: $(wc -c < js/env-config.js) bytes"
         
     - name: Setup Pages
       uses: actions/configure-pages@v4

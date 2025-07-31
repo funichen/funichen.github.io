@@ -1,0 +1,14 @@
+# Environment configuration with API keys
+js/env-config.js
+
+# OS specific
+.DS_Store
+.DS_Store?
+._*
+
+# IDE specific
+.vscode/
+.idea/
+
+# Logs
+*.log
