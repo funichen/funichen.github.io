@@ -64,12 +64,13 @@ class AIService {
 
     // Make the actual API request
     async makeAPIRequest(requestBody) {
-        // Gemini API uses header for API key
-        const response = await fetch(this.config.baseUrl, {
+        // Gemini API uses query parameter for API key
+        const url = `${this.config.baseUrl}?key=${this.config.apiKey}`;
+
+        const response = await fetch(url, {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json',
-                'X-goog-api-key': this.config.apiKey
+                'Content-Type': 'application/json'
             },
             body: JSON.stringify(requestBody)
         });
