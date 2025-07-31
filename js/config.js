@@ -183,8 +183,8 @@ class ConfigManager {
             ai: {
                 // API key will be loaded from API config
                 apiKey: "", 
-                model: "gemini-1.5-flash",
-                baseUrl: "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent",
+                model: "gemini-2.0-flash",
+                baseUrl: "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent",
                 maxTokens: 500,
                 temperature: 0.7,
                 systemPrompt: "", // Will be set after initialization
