@@ -4,7 +4,7 @@
 // For personal websites, this is usually acceptable since you control the usage
 
 const API_CONFIG = {
-    GEMINI_API_KEY: "YOUR_GEMINI_API_KEY_HERE" // Replace with your actual Gemini API key
+    GEMINI_API_KEY: "YOUR_API_KEY_HERE" // This will be replaced by GitHub Actions with the actual API key
 };
 
 // Export for use in other modules

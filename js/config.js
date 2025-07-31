@@ -332,7 +332,9 @@ Remember: You're helping visitors learn about Funi Chen's work, skills, and avai
 
     // Method to check if API key is configured
     isAPIConfigured() {
-        return this.config.ai.apiKey && this.config.ai.apiKey.trim() !== '';
+        return this.config.ai.apiKey && 
+               this.config.ai.apiKey.trim() !== '' && 
+               this.config.ai.apiKey !== 'YOUR_GEMINI_API_KEY_HERE';
     }
 
     // Method to set API key (should be called by user)

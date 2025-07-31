@@ -237,10 +237,62 @@ class ChatWidget {
 
     // Show API not configured message
     showAPINotConfiguredMessage() {
-        const errorMessage = this.messageHandler.createSystemMessage(
-            'AI chat is currently being configured. Please check back soon or contact the site owner if this issue persists.'
+        const configMessage = this.messageHandler.createSystemMessage(
+            `Hi! I'm Funi's AI assistant, but I need to be configured with a Google Gemini API key to work properly. 
+
+**To enable AI chat:**
+1. Get a free API key from [Google AI Studio](https://aistudio.google.com/app/apikey)
+2. Click the button below to configure it
+
+**In the meantime:** Feel free to explore Funi's portfolio, projects, and contact information on this website!`
         );
-        this.displayMessage(errorMessage);
+        this.displayMessage(configMessage);
+        
+        // Add a configure button
+        this.addConfigureButton();
+    }
+
+    // Add configure button to chat
+    addConfigureButton() {
+        const buttonContainer = document.createElement('div');
+        buttonContainer.className = 'configure-button-container';
+        buttonContainer.style.cssText = `
+            padding: 16px;
+            text-align: center;
+            border-top: 1px solid #e5e7eb;
+            background: #f9fafb;
+        `;
+        
+        const configButton = document.createElement('button');
+        configButton.textContent = '🔧 Configure API Key';
+        configButton.style.cssText = `
+            background: #2563eb;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: background-color 0.2s;
+        `;
+        
+        configButton.addEventListener('click', () => {
+            this.showAPIKeyPrompt();
+            buttonContainer.remove();
+        });
+        
+        configButton.addEventListener('mouseenter', () => {
+            configButton.style.background = '#1d4ed8';
+        });
+        
+        configButton.addEventListener('mouseleave', () => {
+            configButton.style.background = '#2563eb';
+        });
+        
+        buttonContainer.appendChild(configButton);
+        this.elements.messagesContainer?.appendChild(buttonContainer);
+        this.scrollToBottom();
     }
 
     // Show API key configuration prompt (kept for backward compatibility)
