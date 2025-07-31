@@ -33,6 +33,9 @@ class ChatbotApp {
             this.configManager = new ConfigManager();
             this.messageHandler = new MessageHandler();
             
+            // Load API key from environment configuration
+            this.configManager.loadAPIKey();
+            
             // Initialize AI service with configuration
             const aiConfig = this.configManager.getAPIConfig();
             this.aiService = new AIService(aiConfig);

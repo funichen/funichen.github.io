@@ -3,8 +3,6 @@ class ConfigManager {
     constructor() {
         this.config = this.getDefaultConfig();
         this.loadConfig();
-        // Load API key from configuration
-        this.loadAPIKey();
         // Set the system prompt after config is initialized
         this.config.ai.systemPrompt = this.buildSystemPrompt();
     }
@@ -341,6 +339,16 @@ Remember: You're helping visitors learn about Funi Chen's work, skills, and avai
     setAPIKey(apiKey) {
         this.config.ai.apiKey = apiKey;
         this.saveConfig();
+    }
+
+    // Method to load API key from environment (should be called after initialization)
+    loadAPIKey() {
+        if (window.API_CONFIG && window.API_CONFIG.GEMINI_API_KEY) {
+            this.config.ai.apiKey = window.API_CONFIG.GEMINI_API_KEY;
+            console.log('API key loaded from environment configuration');
+        } else {
+            console.warn('No API key found in environment configuration');
+        }
     }
 }
 
