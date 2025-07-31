@@ -12,8 +12,17 @@ console.log('API Config Debug:', {
     hasWindow: typeof window !== 'undefined',
     hasENV: typeof window !== 'undefined' && !!window.ENV,
     hasAPIKey: typeof window !== 'undefined' && !!window.ENV?.GEMINI_API_KEY,
-    keyLength: API_CONFIG.GEMINI_API_KEY ? API_CONFIG.GEMINI_API_KEY.length : 0
+    keyLength: API_CONFIG.GEMINI_API_KEY ? API_CONFIG.GEMINI_API_KEY.length : 0,
+    keyStartsWith: API_CONFIG.GEMINI_API_KEY ? API_CONFIG.GEMINI_API_KEY.substring(0, 4) : 'N/A'
 });
+
+// Check if API key is properly configured
+if (!API_CONFIG.GEMINI_API_KEY) {
+    console.warn('⚠️ GEMINI_API_KEY is not configured. Please check:');
+    console.warn('1. GitHub repository secrets are properly set');
+    console.warn('2. GitHub Actions workflow has run successfully');
+    console.warn('3. The deployment includes the updated env-config.js file');
+}
 
 // Export for use in other modules
 window.API_CONFIG = API_CONFIG;
