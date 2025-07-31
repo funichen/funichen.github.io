@@ -260,7 +260,15 @@ Respond as Funi's helpful AI assistant. Be friendly, professional, and encourage
     }
 
     getAPIConfig() {
-        return this.config.ai;
+        // Return a complete API configuration object that AIService expects
+        return {
+            apiKey: this.config.ai.apiKey,
+            model: this.config.ai.model,
+            baseUrl: this.config.ai.baseUrl,
+            maxTokens: this.config.ai.maxTokens,
+            temperature: this.config.ai.temperature,
+            provider: this.config.ai.provider
+        };
     }
 
     getUIConfig() {
