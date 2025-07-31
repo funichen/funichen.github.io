@@ -4,7 +4,7 @@
 // For personal websites, this is usually acceptable since you control the usage
 
 const API_CONFIG = {
-    GEMINI_API_KEY: "YOUR_API_KEY_HERE" // This will be replaced by GitHub Actions with the actual API key
+    GEMINI_API_KEY: (typeof window !== 'undefined' && window.ENV?.GEMINI_API_KEY) || "" // Use environment variable from window.ENV
 };
 
 // Export for use in other modules

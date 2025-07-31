@@ -1,4 +1,4 @@
-name: Build and Deploy with API Key
+name: Build and Deploy with Environment Variables
 
 on:
   push:
@@ -12,15 +12,18 @@ permissions:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    environment: production
     
     steps:
     - name: Checkout
       uses: actions/checkout@v4
       
-    - name: Replace API key placeholder
+    - name: Create environment config
       run: |
-        # Replace the placeholder with the actual API key from secrets
-        sed -i "s/YOUR_API_KEY_HERE/${{ secrets.GEMINI_API_KEY }}/g" js/api-config.js
+        # Create a JavaScript file with environment variables
+        echo "window.ENV = {" > js/env-config.js
+        echo "  GEMINI_API_KEY: '${{ secrets.GEMINI_API_KEY }}'" >> js/env-config.js
+        echo "};" >> js/env-config.js
         
     - name: Setup Pages
       uses: actions/configure-pages@v4
