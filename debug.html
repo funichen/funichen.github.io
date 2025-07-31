@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Debug</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        .status { padding: 10px; margin: 10px 0; border-radius: 5px; }
+        .success { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .error { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+        .warning { background-color: #fff3cd; color: #856404; border: 1px solid #ffeaa7; }
+        pre { background-color: #f8f9fa; padding: 10px; border-radius: 5px; overflow-x: auto; }
+        button { padding: 10px 20px; margin: 10px; background: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; }
+        button:hover { background: #0056b3; }
+    </style>
+</head>
+<body>
+    <h1>API Key Debug</h1>
+    
+    <div id="status-container"></div>
+    
+    <h2>Step-by-Step Debug</h2>
+    <button onclick="checkStep1()">Step 1: Check env-config.js</button>
+    <button onclick="checkStep2()">Step 2: Check api-config.js</button>
+    <button onclick="checkStep3()">Step 3: Check ConfigManager</button>
+    <button onclick="checkStep4()">Step 4: Check AIService</button>
+    <button onclick="testAPI()">Step 5: Test API Call</button>
+    
+    <h2>Debug Information</h2>
+    <pre id="debug-info"></pre>
+
+    <script src="js/env-config.js"></script>
+    <script src="js/api-config.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/ai-service.js"></script>
+    
+    <script>
+        function updateStatus(message, type) {
+            const container = document.getElementById('status-container');
+            const div = document.createElement('div');
+            div.className = `status ${type}`;
+            div.textContent = message;
+            container.appendChild(div);
+        }
+
+        function updateDebugInfo() {
+            const debugInfo = {
+                window: typeof window !== 'undefined',
+                ENV: typeof window.ENV !== 'undefined',
+                API_CONFIG: typeof window.API_CONFIG !== 'undefined',
+                hasENVKey: typeof window.ENV !== 'undefined' && !!window.ENV.GEMINI_API_KEY,
+                hasAPIConfigKey: typeof window.API_CONFIG !== 'undefined' && !!window.API_CONFIG.GEMINI_API_KEY,
+                keyLength: typeof window.API_CONFIG !== 'undefined' && window.API_CONFIG.GEMINI_API_KEY ? window.API_CONFIG.GEMINI_API_KEY.length : 0,
+                keyStartsWith: typeof window.API_CONFIG !== 'undefined' && window.API_CONFIG.GEMINI_API_KEY ? window.API_CONFIG.GEMINI_API_KEY.substring(0, 4) : 'N/A'
+            };
+            
+            document.getElementById('debug-info').textContent = JSON.stringify(debugInfo, null, 2);
+        }
+
+        function checkStep1() {
+            updateStatus('Step 1: Checking env-config.js...', 'warning');
+            if (typeof window.ENV !== 'undefined') {
+                if (window.ENV.GEMINI_API_KEY) {
+                    updateStatus('✅ Step 1: env-config.js loaded, API key found', 'success');
+                } else {
+                    updateStatus('❌ Step 1: env-config.js loaded, but no API key', 'error');
+                }
+            } else {
+                updateStatus('❌ Step 1: env-config.js not loaded', 'error');
+            }
+            updateDebugInfo();
+        }
+
+        function checkStep2() {
+            updateStatus('Step 2: Checking api-config.js...', 'warning');
+            if (typeof window.API_CONFIG !== 'undefined') {
+                if (window.API_CONFIG.GEMINI_API_KEY) {
+                    updateStatus('✅ Step 2: api-config.js loaded, API key found', 'success');
+                } else {
+                    updateStatus('❌ Step 2: api-config.js loaded, but no API key', 'error');
+                }
+            } else {
+                updateStatus('❌ Step 2: api-config.js not loaded', 'error');
+            }
+            updateDebugInfo();
+        }
+
+        function checkStep3() {
+            updateStatus('Step 3: Checking ConfigManager...', 'warning');
+            try {
+                const configManager = new ConfigManager();
+                configManager.loadAPIKey();
+                const apiConfig = configManager.getAPIConfig();
+                
+                if (apiConfig.apiKey) {
+                    updateStatus('✅ Step 3: ConfigManager loaded API key successfully', 'success');
+                } else {
+                    updateStatus('❌ Step 3: ConfigManager has no API key', 'error');
+                }
+                
+                console.log('ConfigManager API Config:', apiConfig);
+            } catch (error) {
+                updateStatus(`❌ Step 3: ConfigManager error: ${error.message}`, 'error');
+            }
+            updateDebugInfo();
+        }
+
+        function checkStep4() {
+            updateStatus('Step 4: Checking AIService...', 'warning');
+            try {
+                const configManager = new ConfigManager();
+                configManager.loadAPIKey();
+                const apiConfig = configManager.getAPIConfig();
+                const aiService = new AIService(apiConfig);
+                
+                if (aiService.config.apiKey) {
+                    updateStatus('✅ Step 4: AIService initialized with API key', 'success');
+                } else {
+                    updateStatus('❌ Step 4: AIService has no API key', 'error');
+                }
+                
+                console.log('AIService Config:', aiService.config);
+            } catch (error) {
+                updateStatus(`❌ Step 4: AIService error: ${error.message}`, 'error');
+            }
+            updateDebugInfo();
+        }
+
+        async function testAPI() {
+            updateStatus('Step 5: Testing API call...', 'warning');
+            
+            if (!window.API_CONFIG?.GEMINI_API_KEY) {
+                updateStatus('❌ Step 5: No API key available for testing', 'error');
+                return;
+            }
+
+            try {
+                const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-goog-api-key': window.API_CONFIG.GEMINI_API_KEY
+                    },
+                    body: JSON.stringify({
+                        contents: [{
+                            parts: [{
+                                text: "Hello! Please respond with 'API is working correctly' if you can see this message."
+                            }]
+                        }]
+                    })
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    updateStatus('✅ Step 5: API call successful!', 'success');
+                    console.log('API Response:', data);
+                } else {
+                    const errorText = await response.text();
+                    updateStatus(`❌ Step 5: API call failed: ${response.status}`, 'error');
+                    console.error('API Error:', errorText);
+                }
+            } catch (error) {
+                updateStatus(`❌ Step 5: Error: ${error.message}`, 'error');
+            }
+            updateDebugInfo();
+        }
+
+        // Auto-run step 1 and 2 on page load
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                checkStep1();
+                checkStep2();
+            }, 100);
+        });
+    </script>
+</body>
+</html> 
