@@ -334,7 +334,9 @@ Would you like to enter your API key now?`;
     updateAPIStatus() {
         const isConfigured = this.chatController.isAPIConfigured();
         // You can add visual indicators here if needed
-        console.log('API configured:', isConfigured);
+        if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+            console.log('API configured:', isConfigured);
+        }
     }
 
     // Clear chat history

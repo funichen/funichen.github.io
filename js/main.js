@@ -172,16 +172,9 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log('Use ChatbotAPI to interact with the chatbot programmatically.');
         console.log('Example: ChatbotAPI.openChat() or ChatbotAPI.setAPIKey("your-key")');
         
-        // Force show the chat button for debugging
+        // Ensure chat button is visible
         const chatButton = document.getElementById('chat-toggle');
-        if (chatButton) {
-            chatButton.style.display = 'flex';
-            chatButton.style.position = 'fixed';
-            chatButton.style.bottom = '20px';
-            chatButton.style.right = '20px';
-            chatButton.style.zIndex = '9999';
-            console.log('Chat button found and forced to display');
-        } else {
+        if (!chatButton) {
             console.error('Chat button not found in DOM!');
         }
         

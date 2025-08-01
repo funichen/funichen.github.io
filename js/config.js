@@ -301,7 +301,10 @@ Respond as Funi's helpful AI assistant. Be friendly, professional, and encourage
     loadAPIKey() {
         if (window.API_CONFIG && window.API_CONFIG.GEMINI_API_KEY) {
             this.config.ai.apiKey = window.API_CONFIG.GEMINI_API_KEY;
-            console.log('API key loaded from environment configuration');
+            // Only log in development
+            if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+                console.log('API key loaded from environment configuration');
+            }
         } else {
             console.warn('No API key found in environment configuration');
         }

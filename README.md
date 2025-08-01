@@ -83,12 +83,9 @@ If you want to set up a similar chatbot for your own website:
 
 ### Testing the Setup
 
-Visit these pages to verify everything is working:
+Visit the main site to test the chatbot:
 
 - **Main Site**: [https://funichen.github.io/](https://funichen.github.io/)
-- **API Test**: [https://funichen.github.io/google-test.html](https://funichen.github.io/google-test.html)
-- **Integration Test**: [https://funichen.github.io/test-integration.html](https://funichen.github.io/test-integration.html)
-- **Debug Config**: [https://funichen.github.io/debug-config.html](https://funichen.github.io/debug-config.html)
 
 ## 🔧 Troubleshooting
 
