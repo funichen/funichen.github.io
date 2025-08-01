@@ -224,11 +224,27 @@ Respond as Funi's helpful AI assistant. Be friendly, professional, and encourage
             const savedConfig = localStorage.getItem('chatbot-config');
             if (savedConfig) {
                 const parsed = JSON.parse(savedConfig);
-                this.config = { ...this.config, ...parsed };
+                // Deep merge to preserve default values
+                this.config = this.deepMerge(this.config, parsed);
             }
         } catch (error) {
             console.warn('Failed to load saved configuration:', error);
         }
+    }
+
+    // Deep merge helper to preserve nested default values
+    deepMerge(target, source) {
+        const result = { ...target };
+        
+        for (const key in source) {
+            if (source[key] && typeof source[key] === 'object' && !Array.isArray(source[key])) {
+                result[key] = this.deepMerge(target[key] || {}, source[key]);
+            } else {
+                result[key] = source[key];
+            }
+        }
+        
+        return result;
     }
 
     saveConfig() {
@@ -288,6 +304,13 @@ Respond as Funi's helpful AI assistant. Be friendly, professional, and encourage
             console.log('API key loaded from environment configuration');
         } else {
             console.warn('No API key found in environment configuration');
+        }
+        
+        // Validate that essential config is present after loading
+        if (!this.config.ai.baseUrl || !this.config.ai.model) {
+            console.warn('Invalid AI configuration detected, resetting to defaults');
+            this.config.ai = this.getDefaultConfig().ai;
+            this.config.ai.apiKey = window.API_CONFIG?.GEMINI_API_KEY || '';
         }
     }
 }
