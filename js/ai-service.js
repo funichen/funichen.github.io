@@ -47,18 +47,13 @@ class AIService {
 
         conversationText += "Assistant: ";
 
+        // Use the exact format from Gemini quickstart guide
         return {
             contents: [{
                 parts: [{
                     text: conversationText
                 }]
-            }],
-            generationConfig: {
-                temperature: this.config.temperature || 0.7,
-                maxOutputTokens: this.config.maxTokens || 500,
-                topP: 0.8,
-                topK: 10
-            }
+            }]
         };
     }
 
