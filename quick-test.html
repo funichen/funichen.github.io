@@ -46,29 +46,80 @@
             updateStatus('Testing chatbot integration...', 'info');
             
             try {
-                // Initialize components
+                // Step 1: Check environment
+                updateStatus('Step 1: Checking environment...', 'info');
+                console.log('Environment check:', {
+                    hasWindow: typeof window !== 'undefined',
+                    hasENV: typeof window.ENV !== 'undefined',
+                    hasAPIConfig: typeof window.API_CONFIG !== 'undefined',
+                    envAPIKey: window.ENV?.GEMINI_API_KEY ? 'Present' : 'Missing',
+                    apiConfigKey: window.API_CONFIG?.GEMINI_API_KEY ? 'Present' : 'Missing'
+                });
+                
+                // Step 2: Initialize components
+                updateStatus('Step 2: Initializing ConfigManager...', 'info');
                 const configManager = new ConfigManager();
+                console.log('ConfigManager created');
+                
+                updateStatus('Step 3: Loading API key...', 'info');
                 configManager.loadAPIKey();
+                console.log('API key loaded');
                 
+                const apiConfig = configManager.getAPIConfig();
+                console.log('API Config:', {
+                    hasApiKey: !!apiConfig.apiKey,
+                    keyLength: apiConfig.apiKey ? apiConfig.apiKey.length : 0,
+                    baseUrl: apiConfig.baseUrl,
+                    model: apiConfig.model,
+                    provider: apiConfig.provider
+                });
+                
+                updateStatus('Step 4: Initializing AI Service...', 'info');
+                const aiService = new AIService(apiConfig);
+                
+                // Validate config
+                const validation = aiService.validateConfig();
+                console.log('Config validation:', validation);
+                
+                if (!validation.valid) {
+                    throw new Error(`Config validation failed: ${validation.errors.join(', ')}`);
+                }
+                
+                updateStatus('Step 5: Testing direct AI service call...', 'info');
+                
+                // Test direct AI service call
+                const testMessages = [{ role: 'user', content: 'Hello, this is a test. Please respond briefly.' }];
+                const systemPrompt = configManager.getSystemPrompt();
+                
+                console.log('Making direct AI service call...');
+                const aiResponse = await aiService.generateResponse(testMessages, systemPrompt);
+                console.log('AI Response received:', aiResponse);
+                
+                updateStatus('✅ Direct AI service test successful!', 'success');
+                document.getElementById('response').textContent = `Direct AI Response: ${aiResponse}`;
+                
+                // Now test full chatbot
+                updateStatus('Step 6: Testing full chatbot integration...', 'info');
                 const messageHandler = new MessageHandler();
-                const aiConfig = configManager.getAPIConfig();
-                const aiService = new AIService(aiConfig);
-                
                 const chatController = new ChatController(configManager, messageHandler, aiService);
                 
-                updateStatus('Components initialized successfully', 'success');
-                updateStatus('Sending test message to AI...', 'info');
+                const result = await chatController.sendMessage("Hello, this is a full test. Please respond briefly.");
                 
-                // Send a test message
-                const result = await chatController.sendMessage("Hello, this is a test. Please respond briefly.");
-                
-                updateStatus('✅ Chatbot test successful!', 'success');
-                document.getElementById('response').textContent = `AI Response: ${result.botMessage.content}`;
+                updateStatus('✅ Full chatbot test successful!', 'success');
+                document.getElementById('response').textContent += `\n\nFull Chatbot Response: ${result.botMessage.content}`;
                 
             } catch (error) {
-                updateStatus(`❌ Chatbot test failed: ${error.message}`, 'error');
+                updateStatus(`❌ Test failed at: ${error.message}`, 'error');
                 document.getElementById('response').textContent = `Error: ${error.message}\n\nStack: ${error.stack}`;
-                console.error('Chatbot test error:', error);
+                console.error('Detailed error:', error);
+                
+                // Additional debugging info
+                console.log('Debug info:', {
+                    windowENV: window.ENV,
+                    windowAPIConfig: window.API_CONFIG,
+                    errorName: error.name,
+                    errorMessage: error.message
+                });
             }
         }
 
