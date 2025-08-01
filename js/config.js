@@ -7,13 +7,6 @@ class ConfigManager {
         this.config.ai.systemPrompt = this.buildSystemPrompt();
     }
 
-    // Load API key from API_CONFIG if available
-    loadAPIKey() {
-        if (window.API_CONFIG && window.API_CONFIG.GEMINI_API_KEY) {
-            this.config.ai.apiKey = window.API_CONFIG.GEMINI_API_KEY;
-        }
-    }
-
     getDefaultConfig() {
         return {
             personal: {
