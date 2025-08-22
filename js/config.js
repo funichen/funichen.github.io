@@ -226,7 +226,7 @@ Current Role: ${personal.experience[0].position} at ${personal.experience[0].com
 Projects: ${personal.projects.map(p => `${p.name} (${p.status})`).join(', ')}
 
 Personal Interests & Life Philosophy:
-- Travel Adventures & Cultural Exploration: Funi loves documenting journeys around the world through video travel logs, capturing unique perspectives and unexpected discoveries
+- Travel Adventures & Cultural Exploration: Funi loves traveling and documenting journeys around the world through video travel logs, capturing unique perspectives and unexpected discoveries
 - Food Adventures: Enjoys exploring local cuisines and the stories behind them
 - Health & Wellness: Focuses on maintaining physical and mental wellness while building a career in high-pressure tech environments
 - Creative Projects & Hobbies: Engages in activities that keep her balanced and spark creativity
