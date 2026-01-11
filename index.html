@@ -1,312 +1,174 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Funi Chen's personal website with AI chatbot assistant">
-  <title>Funi Chen - Data & AI Leader</title>
-  <link rel="stylesheet" href="styles/main.css">
-  <link rel="stylesheet" href="styles/chatbot.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insight Agent Connect - Personal AI Agent Suite</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+        
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 2.5rem;
+        }
+        
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+        
+        .links {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .link-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+            font-size: 1.1rem;
+        }
+        
+        .link-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
+        }
+        
+        .link-button.secondary {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+        
+        .link-button.secondary:hover {
+            box-shadow: 0 10px 20px rgba(245, 87, 108, 0.4);
+        }
+        
+        .description {
+            color: #555;
+            line-height: 1.6;
+            margin-top: 20px;
+            text-align: left;
+        }
+        
+        .features {
+            margin-top: 30px;
+            text-align: left;
+        }
+        
+        .features h3 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+        
+        .features ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .features li {
+            padding: 8px 0;
+            color: #666;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .features li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+        
+        .note {
+            margin-top: 30px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            color: #666;
+            font-size: 0.9rem;
+            text-align: left;
+        }
+    </style>
 </head>
-
 <body>
-  <!-- Main Website Content -->
-  <header>
-    <nav>
-      <div class="nav-container">
-        <h1 class="logo">Funi Chen</h1>
-        <ul class="nav-links">
-          <li><a href="#about">About</a></li>
-          <li><a href="#experience">Experience</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="insights.html">Insights</a></li>
-          <li><a href="life.html">Life</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </div>
-    </nav>
-  </header>
-
-  <main>
-    <section id="hero">
-      <div class="hero-content">
-        <div class="profile-image-container">
-          <img src="images/FuniChen.png" alt="Funi Chen" class="profile-image" />
+    <div class="container">
+        <h1>🤖 Insight Agent Connect</h1>
+        <p class="subtitle">Your Personal AI Agent Suite</p>
+        
+        <div class="links">
+            <a href="dashboard_pro.html" class="link-button">
+                🎯 Open Dashboard (FastAPI)
+            </a>
+            <a href="#" id="streamlit-link" class="link-button secondary" onclick="alert('Please configure your Streamlit Cloud URL in index.html'); return false;">
+                ☁️ Streamlit Cloud App
+            </a>
         </div>
-        <h1>Funi Chen</h1>
-        <p>Data & AI Leader with Clinical Insight</p>
-        <p class="hero-subtitle">Chat with my AI assistant to learn about my experience at Amazon, Providence, and
-          healthcare data innovation!</p>
-
-        <!-- Start Chat Button in Hero Section -->
-        <div class="hero-chat-button">
-          <button id="chat-toggle-hero" class="chat-toggle-hero">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M20 2H4C2.9 2 2 2.9 2 4V22L6 18H20C21.1 18 22 17.1 22 16V4C22 2.9 21.1 2 20 2Z"
-                fill="currentColor" />
-            </svg>
-            Start Chat
-          </button>
+        
+        <div class="description">
+            <p>Access your personal AI agents for wellness, business, finance, and more.</p>
         </div>
-      </div>
-    </section>
-
-    <section id="about">
-      <div class="container">
-        <h2>About Me</h2>
-        <div class="about-content">
-          <div class="professional-summary">
-            <h3>Professional Background</h3>
-            <p>Data & AI Leader with a foundation in complex, high-stakes problem-solving. Proven track record of
-              building
-              and leading high-performing engineering teams at Amazon and Providence. Expert in architecting scalable
-              data
-              platforms, AI-driven analytics solutions, and cloud-native systems. Adept at translating ambiguous
-              business
-              challenges into robust, data-driven strategy and execution. Uniquely positioned to bridge the gap
-              between clinical challenges and cutting-edge data strategy.</p>
-          </div>
-
-          <div class="personal-projects">
-            <h3>Beyond Work</h3>
-            <p>Outside of my professional responsibilities, I'm passionate about creating innovative applications that
-              make people's lives better. I enjoy exploring new technologies through personal projects, particularly in
-              mobile development and AI integration. My side projects reflect my interest in user experience design,
-              stress relief applications, and making technology more accessible to everyone.</p>
-          </div>
+        
+        <div class="features">
+            <h3>Features:</h3>
+            <ul>
+                <li>7 Specialized AI Agents</li>
+                <li>File Upload & Knowledge Sharing</li>
+                <li>Hierarchical Priority Control</li>
+                <li>Approval Workflow for High-Stakes Actions</li>
+                <li>Shared Long-Term Memory</li>
+            </ul>
         </div>
-      </div>
-    </section>
-
-    <section id="experience">
-      <div class="container">
-        <h2>Professional Experience</h2>
-        <div class="timeline-container">
-          <div class="timeline-line"></div>
-
-          <div class="timeline-item">
-            <div class="timeline-marker">
-              <div class="timeline-dot"></div>
-              <div class="timeline-date">2024 - Present</div>
-            </div>
-            <div class="timeline-content">
-              <div class="timeline-company">Amazon Pharmacy</div>
-              <h3 class="timeline-position">Sr. Business Intelligence Engineer, Team Lead</h3>
-              <ul class="timeline-achievements">
-                <li>Led 6 BIEs to build core data infrastructure, boosting team productivity by 30% through agile
-                  practices.</li>
-                <li>Built an AI-powered analytics platform, enabling 50+ business leaders to get insights in seconds,
-                  with full data governance.</li>
-                <li>Developed a unified Hub & Prescriber Analytics system; launched 10+ dashboards, cutting manual work
-                  by 30% and saving 15+ hrs/week.</li>
-                <li>Designed a data validation framework for ETL pipelines, ensuring 100% compliance and eliminating
-                  manual checks.</li>
-                <li>Led to consolidated dashboards from 5 environments into a real-time QuickSight hub, improving KPI
-                  alignment and executive visibility.</li>
-              </ul>
-              <div class="timeline-skills">
-                <span>AWS</span>
-                <span>Python/Scala/PySpark</span>
-                <span>Team Leadership</span>
-                <span>AI/ML</span>
-                <span>Data Architecture</span>
-                <span>Vibe Coding</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="timeline-item">
-            <div class="timeline-marker">
-              <div class="timeline-dot"></div>
-              <div class="timeline-date">2023 - 2024</div>
-            </div>
-            <div class="timeline-content">
-              <div class="timeline-company">Providence Health & Services</div>
-              <h3 class="timeline-position">Engineering Manager, Value Based Care Analytics</h3>
-              <ul class="timeline-achievements">
-                <li>Managed multi-disciplinary team of 5 for greenfield data platform.</li>
-                <li>Owned end-to-end development lifecycle, boosting team velocity by 30% through roadmap alignment and
-                  engineering best practices.</li>
-                <li>Integrated new analytics tools and led strategic analyses, driving growth-focused insights in
-                  collaboration with executives and vendors.</li>
-                <li>Led migration to an Azure/Snowflake stack, cutting data latency and storage costs by 40% for P&L
-                  reporting.</li>
-              </ul>
-              <div class="timeline-skills">
-                <span>Azure</span>
-                <span>Snowflake</span>
-                <span>Engineering Management</span>
-                <span>Data Platform</span>
-                <span>Databricks</span>
-                <span>Strategic Planning</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="timeline-item">
-            <div class="timeline-marker">
-              <div class="timeline-dot"></div>
-              <div class="timeline-date">2022 - 2023</div>
-            </div>
-            <div class="timeline-content">
-              <div class="timeline-company">Amazon Care</div>
-              <h3 class="timeline-position">Sr. Business Intelligence Engineer, Team Lead</h3>
-              <ul class="timeline-achievements">
-                <li>Led development of scalable data infrastructure and dashboards for quality, clinical outreach, and
-                  population health programs.</li>
-                <li>Designed patient-centric data workflows, boosting real-time decision-making and provider reporting
-                  by 40%.</li>
-                <li>Automated global benefits reporting, increasing efficiency by 65%.</li>
-                <li>Partnered with execs and vendors to support strategic planning with data insights.</li>
-                <li>Mentored junior engineers with 30% productivity gain</li>
-              </ul>
-              <div class="timeline-skills">
-                <span>AWS</span>
-                <span>Airflow</span>
-                <span>Python/SQL</span>
-                <span>Clinical Analytics</span>
-                <span>Quality Programs</span>
-                <span>Data Modeling</span>
-                <span>Automation</span>
-                <span>Team Leadership</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="timeline-item">
-            <div class="timeline-marker">
-              <div class="timeline-dot"></div>
-              <div class="timeline-date">2017 - 2022</div>
-            </div>
-            <div class="timeline-content">
-              <div class="timeline-company">Providence Health & Services</div>
-              <h3 class="timeline-position">Principal Data Engineer, Tech Lead</h3>
-              <ul class="timeline-achievements">
-                <li>Led a 6-engineer team to deploy ML-driven pipelines predicting post-chemo risk, shaping clinical
-                  intervention protocols.</li>
-                <li>Automated Azure/Snowflake data ingestion, boosting accuracy and productivity by 75%.</li>
-                <li>Applied Agile to develop Sepsis, Cardiovascular, and Cancer data explorers, cutting project
-                  timelines by 35%.</li>
-                <li>Designed data marts across 51 hospitals and institutes, increasing data availability by 60%.</li>
-                <li>Collaborated cross-functionally to evaluate clinical metrics and derive insights from large
-                  datasets.</li>
-                <li>Used data visualization to surface ML insights for decision support.</li>
-              </ul>
-              <div class="timeline-skills">
-                <span>Azure</span>
-                <span>Snowflake</span>
-                <span>Databricks</span>
-                <span>Data Engineering</span>
-                <span>Machine Learning</span>
-                <span>Clinical Data</span>
-                <span>Python/Spark/SQL</span>
-              </div>
-            </div>
-          </div>
+        
+        <div class="note">
+            <strong>Note:</strong> The dashboard requires a running backend API. 
+            For local development, run <code>python3 run.py</code> to start the FastAPI server.
+            For production, deploy to Streamlit Cloud or your own server.
         </div>
-      </div>
-    </section>
-
-    <section id="projects">
-      <div class="container">
-        <h2>Side Projects</h2>
-        <div class="projects-grid">
-          <div class="project-card">
-            <h3>SquishyDuck - Stress Relief App</h3>
-            <p>A Flutter app with interactive duck activities for stress relief, featuring balloon popping, squeeze
-              ball, and breathing exercises</p>
-            <div class="tech-tags">
-              <span>Flutter</span>
-              <span>Dart</span>
-              <span>C++</span>
-              <span>Custom UI</span>
-            </div>
-          </div>
-          <div class="project-card">
-            <h3>AI Chatbot for GitHub Pages</h3>
-            <p>A client-side AI chatbot that can be easily deployed on GitHub Pages</p>
-            <div class="tech-tags">
-              <span>JavaScript</span>
-              <span>AI APIs</span>
-              <span>CSS</span>
-              <span>HTML</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact">
-      <div class="container">
-        <h2>Get In Touch</h2>
-        <p>Feel free to reach out or chat with my AI assistant for quick questions!</p>
-        <div class="contact-links">
-          <a href="https://github.com/funichen" target="_blank" rel="noopener noreferrer">GitHub</a>
-          <a href="https://www.linkedin.com/in/funichen/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- Chatbot Widget -->
-  <div id="chatbot-container">
-    <!-- Chat button (initially visible) -->
-    <button id="chat-toggle" class="chat-toggle" aria-label="Open chat">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M20 2H4C2.9 2 2 2.9 2 4V22L6 18H20C21.1 18 22 17.1 22 16V4C22 2.9 21.1 2 20 2Z" fill="currentColor" />
-      </svg>
-    </button>
-
-    <!-- Chat window (initially hidden) -->
-    <div id="chat-window" class="chat-window hidden">
-      <div class="chat-header">
-        <h3>Chat with Funi Chen's AI</h3>
-        <button id="chat-close" class="chat-close" aria-label="Close chat">×</button>
-      </div>
-
-      <div id="chat-messages" class="chat-messages">
-        <div class="message bot-message">
-          <div class="message-content">
-            <p>Hi! I'm Funi's AI assistant. I can tell you about her background, projects, and skills. What would
-              you like to know?</p>
-          </div>
-          <div class="message-time"></div>
-        </div>
-      </div>
-
-      <div class="chat-input-container">
-        <div class="chat-input-wrapper">
-          <input type="text" id="chat-input" placeholder="Type your message..." aria-label="Chat message input">
-          <button id="chat-send" aria-label="Send message">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M2.01 21L23 12L2.01 3L2 10L17 12L2 14L2.01 21Z" fill="currentColor" />
-            </svg>
-          </button>
-        </div>
-      </div>
-
-      <!-- Typing indicator -->
-      <div id="typing-indicator" class="typing-indicator hidden">
-        <div class="typing-dots">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-        <span class="typing-text">AI is typing...</span>
-      </div>
     </div>
-  </div>
-
-  <!-- Scripts -->
-  <script src="js/env-config.js"></script>
-  <script src="js/api-config.js"></script>
-  <script src="js/config.js"></script>
-  <script src="js/message-handler.js"></script>
-  <script src="js/ai-service.js"></script>
-  <script src="js/chat-controller.js"></script>
-  <script src="js/chat-widget.js"></script>
-  <script src="js/main.js"></script>
+    
+    <script>
+        // Auto-detect Streamlit URL if available
+        // Update this with your actual Streamlit Cloud URL after deployment
+        const streamlitUrl = 'https://your-app-name.streamlit.app';
+        const streamlitLink = document.getElementById('streamlit-link');
+        
+        if (streamlitUrl && !streamlitUrl.includes('your-app-name')) {
+            streamlitLink.href = streamlitUrl;
+            streamlitLink.onclick = null;
+        }
+    </script>
 </body>
-
 </html>
